@@ -1,4 +1,4 @@
-
+# 讲的是如何使用队列，队列是用一个集合来表示，制定一个指针用来指定队列的头部
 
 class Solution():
     def length_of_string(self, string):

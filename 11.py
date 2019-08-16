@@ -10,13 +10,13 @@ class Solution:
         for i in range(2,-2,-1):
             a = b // 10**(i+1)
             if a == 0:
-                break
+                continue
             elif 0 < a < 4:
                 s = s + a * c[i+1]
             elif a == 4:
                 s = s + c[i+1] + d[i+1]
             elif 9 > a > 4:
-                s = s + c[i+1] + (a%5) * d[i+1]
+                s = s + d[i+1] + (a%5) * c[i+1]
             else:
                 s = s + c[i+1] + c[i+2]
             b = b % (10**(i+1))
@@ -26,5 +26,5 @@ class Solution:
 
 
 solution = Solution()
-a = solution.intToRoman(1994)
+a = solution.intToRoman(58)
 print(a)

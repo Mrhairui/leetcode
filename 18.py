@@ -25,3 +25,6 @@ class Solution:
 solution = Solution()
 a = solution.isValid("[])")
 print(a)
+
+
+# 边界条件很重要，但是你今天是打补丁，相当于有问题了，加一下这样不行的

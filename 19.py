@@ -7,28 +7,27 @@ class ListNode:
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
         l3 = ListNode(0)
-        while l1 != None or l2 != None:
-            if l1.val <= l2.val:
-                l3.next = l1
+        p = l3
+        while l1 or l2:
+            if l1 and l2:
+                tmp1 = l1.val
+                tmp2 = l2.val
+                if tmp1 < tmp2:
+                    p.next = ListNode(tmp1)
+                    l1 = l1.next
+                else:
+                    p.next = ListNode(tmp2)
+                    l2 = l2.next
+            elif l1:
+                p.next = ListNode(l1.val)
                 l1 = l1.next
-                l3 = l3.next
-            else:
-                l3.next = l2
+            elif l2:
+                p.next = ListNode(l2.val)
                 l2 = l2.next
-                l3 = l3.next
+            p = p.next
+        return l3.next
 
-        if l1 == None:
-            while l2 != None:
-                l3.next = l2
-                l2 = l2.next
-                l3 = l3.next
-        elif l2 == None:
-            l3.next = l1
-            l1 = l1.next
-            l3 = l3.next
-        else:
-            return l3
-        return l3
+
 
 solution = Solution()
 l1 = ListNode(1)
@@ -39,6 +38,9 @@ l2.next = ListNode(3)
 l2.next.next = ListNode(4)
 
 a = solution.mergeTwoLists(l1, l2)
+while a:
+    print(a.val , '->')
+    a = a.next
 
 
 

@@ -12,12 +12,6 @@ class Solution:
             left = 0
             right = n - 1
             middle = (n - 1) // 2
-            if nums[left] == target:
-                return left
-            elif nums[right] == target:
-                return right
-            elif nums[middle] == target:
-                return middle
             while middle != left or middle != right:
                 if nums[middle] < nums[right]:
                     right = middle
@@ -29,6 +23,12 @@ class Solution:
                         middle = left
                     else:
                         middle = right
+            if nums[left] == target:
+                return left
+            elif nums[right] == target:
+                return right
+            elif nums[middle] == target:
+                return middle
             d0 = middle
             left = d0
             if left == 0:

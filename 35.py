@@ -60,6 +60,9 @@ class Solution:
       Backtracking
       """
             # if the cell is empty
+            for i in range(9):
+                print(board[i])
+                print('\n')
             if board[row][col] == '.':
                 # iterate over all numbers from 1 to 9
                 for d in range(1, 10):
@@ -93,3 +96,9 @@ class Solution:
         sudoku_solved = False
         backtrack()
 
+
+
+board = [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]]
+solution = Solution()
+aa = solution.solveSudoku(board)
+print(board)

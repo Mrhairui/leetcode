@@ -9,7 +9,7 @@ class Solution:
         return res
 
     def trace(self, begin, candidates, res, path, target, size):
-        if target == 0:
+        if target == 0 and path[:] not in res:
             res.append(path[:])
         for i in range(begin, size):
             residual = target - candidates[i]

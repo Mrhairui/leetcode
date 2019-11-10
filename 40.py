@@ -3,17 +3,23 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         left = 0
         n = len(height)
+        if n == 0 or n == 1 or n==2:
+            return 0
         res = 0
         right = n-1
-        while left < n:
+        while left < n-1:
             if height[left] > height[left+1]:
                 break
             left += 1
+        if left == n-1:
+            return 0
         while right >= 0:
             if height[right] > height[right-1]:
                 break
             right -= 1
-        p = height[left:right + 1]
+            if right ==1:
+                return 0
+        p = height[left-1:right + 1]
 
         index = height.index(max(height))
         pp = left
@@ -35,7 +41,7 @@ class Solution:
 
 
 if __name__ == '__main__':
-    height = [0,1,0,2,1,0,1,3,2,1,2,1]
+    height = [1,7,8]
     solution = Solution()
     result = solution.trap(height)
     print(result)

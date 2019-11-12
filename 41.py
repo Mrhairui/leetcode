@@ -22,6 +22,8 @@ class Solution:
             return True
         elif ns == 0 and not aa:
             return False
+        elif ns != 0 and ps == 0:
+            return False
 
         while i < ns or j < ps:
             if p[j] == '?':
@@ -51,8 +53,9 @@ class Solution:
 
 
 if __name__ == '__main__':
-    s = "a"
-    p = ""
+    s = "abefcdgiescdfimde"
+
+    p = "ab*cd?i*de"
     solution = Solution()
     result = solution.isMatch(s, p)
     print(result)
